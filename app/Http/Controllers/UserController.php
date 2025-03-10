@@ -20,8 +20,16 @@ class UserController extends Controller
         UserModel::where('username', 'customer-1')->update($data); // update data user
 
         // coba akses model UserModel
-        $user = UserModel::where('level_id', 2)->count();
-       
+        $user = UserModel::firstOrNew(
+            [
+                'username'=> 'manager33',
+                'nama'=> 'Manager Tiga Tiga',
+                'password'=> Hash::make('12345'),
+                'level_id'=>2
+            ],
+        );
+        $user->save();
+        
         return view('user', ['data' => $user]);
     }
 }
