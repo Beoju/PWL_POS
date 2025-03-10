@@ -13,14 +13,15 @@ class UserController extends Controller
         // tambah data user dengan Eloquent Model
         $data = [
             'level_id' => 2,
-            'username' => 'manager_tiga',
-            'nama' => 'Manager 3',
+            'username' => 'manager_dua',
+            'nama' => 'Manager 2',
             'password' => Hash::make('12345')
         ];
         UserModel::where('username', 'customer-1')->update($data); // update data user
 
         // coba akses model UserModel
-        $user = UserModel::where('username', 'manager9')->firstOrFail();
+        $user = UserModel::where('level_id', 2)->count();
+       
         return view('user', ['data' => $user]);
     }
 }
