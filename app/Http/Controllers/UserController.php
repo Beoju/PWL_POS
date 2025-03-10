@@ -20,9 +20,7 @@ class UserController extends Controller
         UserModel::where('username', 'customer-1')->update($data); // update data user
 
         // coba akses model UserModel
-        $user = UserModel::findOr(20, ['username','name'], function (){
-            abort(404);
-        });
+        $user = UserModel::where('username', 'manager9')->firstOrFail();
         return view('user', ['data' => $user]);
     }
 }
