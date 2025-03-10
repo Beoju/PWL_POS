@@ -17,10 +17,7 @@ class UserController extends Controller
             'nama' => 'Manager 2',
             'password' => Hash::make('12345')
         ];
-        UserModel::where('username', 'customer-1')->update($data); // update data user
-
-        // coba akses model UserModel
-        $user = UserModel::all();
+        $user = UserModel::with('level')->get();
         return view('user', ['data' => $user]);
     }
     

@@ -11,6 +11,8 @@
             <th>Username</th>
             <th>Nama</th>
             <th>ID Level Pengguna</th>
+            <th>Kode Level</th>
+            <th>Nama Level</th>
             <th>Aksi</th>
         </tr>
         @foreach ($data as $d)
@@ -19,6 +21,8 @@
             <td>{{ $data->username }}</td>
             <td>{{ $data->nama }}</td>
             <td>{{ $data->level_id }}</td>
+            <td>{{$d->level->level_kode}}</td>
+            <td>{{%d->level->level_nama}}</td>
             <tb><a href="/user/ubah/{{$d->user_id}}">Ubah</a>|<a href="/user/hapus/{{$d->user_id}}">Hapus</a> </tb>
         </tr>
         @endforeach
